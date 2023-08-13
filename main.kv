@@ -1,0 +1,173 @@
+<Calculadora>:
+    MDBottomNavigation:
+
+        MDBottomNavigationItem:
+            name: "calculadora"
+            icon: "calculator"
+            text: "IMC"
+            padding: "10dp"
+            
+            MDFloatLayout:
+                GridLayout:
+                    rows: 1
+                    columns: 2
+                    size_hint: 0.8, 0.1   
+                    pos_hint: {'center_x': 0.5,'center_y': 0.9}
+                    spacing: "15dp"
+                    
+                    MDFloatLayout:
+                        MDCheckbox:
+                            id: male
+                            group: "gender"
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                            opacity: 0.7
+                            
+                        MDIcon:
+                            icon: "gender-male"
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    MDFloatLayout: 
+                        MDCheckbox:
+                            id: female
+                            group: "gender"
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                            opacity: 0.7
+                        MDIcon:
+                            icon: "gender-female"
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                MDCard:
+                    focus_behavior: False
+                    size_hint: 0.95, 0.3
+                    pos_hint: {'center_x': 0.5,'center_y': 0.7}
+                    elevation: 1
+                    orientation: 'vertical'
+                    padding: "15dp"
+                    MDBoxLayout:
+                        size_hint: 1, 0.1
+                        MDLabel:
+                            text: "Edad"
+                            bold: True
+                            font_size: 25
+                    MDFloatLayout:
+                        size_hint: 1, 0.9
+                        MDSlider:
+                            id: edad
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                            size_hint: 0.9, 0.1
+                            min: 5
+                            max: 99
+                            step: 1
+
+                MDCard:
+                    focus_behavior: False
+                    size_hint: 0.45, 0.3
+                    pos_hint: {'center_x': 0.25,'center_y': 0.35}
+                    elevation: 1
+                    orientation: 'vertical'
+                    padding: "15dp"
+                    
+                    MDBoxLayout:
+                        size_hint: 1, 0.1
+                        padding: "5dp"
+
+                        MDLabel:
+                            text: "Altura (cm)"
+                            bold: True
+                            font_size: 25
+
+                    MDFloatLayout:
+                        size_hint: 1, 1
+                    
+                        GridLayout:
+                            columns: 1
+                            rows: 1
+                            size_hint: 1, 1
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                            MDIconButton:
+                                icon: "arrow-left"
+                                size_hint: 0.4, 1
+                                on_press: root.bajar_altura()
+                            MDFloatLayout:
+                                size_hint: 1, 1
+                                MDTextButton:
+                                    id: altura
+                                    text: "170"
+                                    font_size: 50
+                                    bold: True
+                                    disabled: 'False'
+                                    size: 100, 50
+                                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                                
+                            MDIconButton:
+                                icon: "arrow-right"
+                                size_hint: 0.4, 1
+                                on_press: root.subir_altura()
+
+                MDCard:
+                    focus_behavior: False
+                    size_hint: 0.45, 0.3
+                    pos_hint: {'center_x': 0.75,'center_y': 0.35}
+                    elevation: 1
+                    orientation: 'vertical'
+                    padding: "15dp"
+                    MDBoxLayout:
+                        size_hint: 1, 0.1
+                        MDLabel:
+                            text: "Peso (kg)"
+                            bold: True
+                            font_size: 25
+                    MDFloatLayout:
+                        size_hint: 1, 0.9
+                        GridLayout:
+                            columns: 1
+                            rows: 1
+                            size_hint: 1, 1
+                            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                            MDIconButton:
+                                icon: "arrow-left"
+                                size_hint: 0.4, 1
+                                on_press: root.bajar_peso()
+                            MDFloatLayout:
+                                size_hint: 1, 1
+                                MDTextButton:
+                                    id: peso
+                                    text: "60"
+                                    font_size: 50
+                                    bold: True
+                                    disabled: 'False'
+                                    size: 100, 50
+                                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                                
+                            MDIconButton:
+                                icon: "arrow-right"
+                                size_hint: 0.4, 1
+                                on_press: root.subir_peso()
+
+                MDFillRoundFlatIconButton:
+                    text: "Calcular"
+                    icon: "calculator-variant-outline"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.1}
+                    size_hint: 0.6, None
+                    on_press: root.calcular_imc()
+
+        MDBottomNavigationItem:
+            name: "texto"
+            icon: "text-box"
+            text: "Informacion IMC"
+
+            GridLayout:
+                columns: 1
+                rows: 15
+                padding: "20dp"
+                MDLabel:
+                    text: "Que es el IMC?"
+                    font_size: 50
+                    bold: True
+                MDLabel:
+                    text: "El IMC es el índice de masa corporal, que es una medida que relaciona el peso y la estatura de una persona para estimar su grasa corporal y su riesgo de enfermedades."
+                MDLabel:
+                    text: "Informacion sobre la calculadora"
+                    font_size: 50
+                    bold: True
+                MDLabel:
+                    text: "En niños la calculadora usa las tablas de IMC y tablas de IMC Para la Edad, de niños(as) y adolescentes que proporciona el proyecto FANTA para poder interpretar el IMC."
+                    
